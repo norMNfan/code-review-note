@@ -1,0 +1,91 @@
+== Names
+
+===== Use Pronounceable names
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Pronounceable
+
+===== Avoid Encodings
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Avoid_Encodings
+
+===== Don't be too cute
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Too_Cute
+
+===== Most meanings have multiple words. Pick ONE
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Pick_One
+
+.Bad Example
+[source,java]
+public Item getItem() { ... }
+public Option fetchOption() { ... }
+
+.Good Example
+[source,java]
+public Item getItem() { ... }
+public Option getOption() { ... }
+
+===== Most words have multiple meanings
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Nouns_Verbs
+
+===== Nouns and Verb Phrases
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Nouns_Verbs
+
+.Bad Example
+[source,java]
+public String name() { ... }
+
+.Good Example
+[source,java]
+public String getName() { ... }
+
+===== Use Solution Domain Names
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Problem_Domain
+
+===== Also Use Problem Domain Names
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Problem_Domain
+
+===== Avoid Mental Mapping
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Mental_Map
+
+===== Nothing is intuitive
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Nothing_Intuitive
+
+===== Avoid Disinformation
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Avoid_Disinfo
+
+
+
+===== Names are only Meaningful in Context
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#In_Context
+
+===== Don't add Artificial Context
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Artificial_Context
+
+===== No Disambiguation without Differentiation
+https://maultech.com/chrislott/resources/cstyle/ottinger-naming.html#Disambig
+
+===== Avoid Necessity of Description Comment
+Instead of putting comment to explain the variable, have the variable name describe itself.
+
+.Bad Example
+[source,java]
+int p; // Points user will achieve
+
+.Good Example
+[source,java]
+int pointsForUser;
+
+===== Avoid Necessity of Looking Usage
+If readers cannot understand the varaible without reading the code using that variable, that's a bad name.
+
+===== Longer Name Length when Longer Scope Length for Variables
+Should have shorter name length when shorter scope length.
+
+.Bad Example
+[source,java]
+for (Element element : List<Element> el) { ... }
+
+.Good Example
+[source,java]
+for (Element e : List<Element> elementList) { ... }
+
+===== Longer Name Length when Shorter Scope Length for Functions and Classes
+Should have shorter name length when longer scope length. Because we want it to be convenient to use if it's a public function. If it's a public function, it should be easy to imagine what it does in that abstract level. However for the private functions, they are part of implementation detail, and longer descriptive name will help understanding what it does. And since private functions are called from fewer place, the loss of convenience is not a big cost.

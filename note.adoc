@@ -121,7 +121,7 @@ When comments are mandated at the top of classes and functions they create noise
  * @param title The title of the CD
  * @param author The author of the CD
  * @param tracks The number of tracks on the CD
- * @param duractionInMinutes The duration of the CD in minutes
+ * @param durationInMinutes The duration of the CD in minutes
  */
 public void addCd(String title, String author, int tracks, int durationInMinutes) { ... }
 ----
@@ -141,7 +141,7 @@ Don't create journal entries in your code. Your VCS does that for you. Don't clu
  * 12-Oct-2011 : Deleted some commented out code
  * 13-Oct-2011 : Refactored some code to make the function names more obvious
  */
- ----
+----
 
 ==== Position Markers and Big Banner Comments
 A big banner comment screams "Ignore me!". The structure of your code should be logical and the position of your variables, methods and constructors should be implicit in your uniformly structured source code.

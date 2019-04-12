@@ -87,3 +87,128 @@ for (Element e : List<Element> elementList) { ... }
 
 ==== Longer Name Length when Shorter Scope Length for Functions and Classes
 Should have shorter name length when longer scope length. Because we want it to be convenient to use if it's a public function. If it's a public function, it should be easy to imagine what it does in that abstract level. However for the private functions, they are part of implementation detail, and longer descriptive name will help understanding what it does. And since private functions are called from fewer place, the loss of convenience is not a big cost.
+
+== Comments
+
+=== Every Comment Is A Failure
+The goal of every programmer should be to write code that expresses it's intent so well that comments are unnecessary. Every comment is a failure to express yourself in your code. Every comment is a failure! If your fail to express yourself in code, admit your failure and write the comment. Do not leave the code unexplained.
+
+=== The Code Is The Only Reliable Document For What The Code Does
+When there is a bug in the system, reading artistic flow charts and comments will be to no avail. Only by reading the code can the programmer understand what the code actually does.
+
+=== Comments Rot and Lie
+Overtime comments degrade into misinformation and lies. Comments rot because they tend to be non-local. When you change a line of code, how do you know that you haven't just invalidated a comment somewhere else in the code? There is no way to know. Comments must rot. They eventually rot and become lies.
+
+=== When Comments Should Not Be Used
+
+==== Redundant Explanations
+Comments must add something new. Don't simply restate the code already expresses.
+
+.Bad Example
+[source,java]
+// This method sends an email
+void sendEmail() { ... }
+
+==== Mandated Redundancy (Mandated Stupidity)
+When comments are mandated at the top of classes and functions they create noise. They are often skipped by developers who become trained to ignore them because they are everywhere. Comments should be rare. When they are used they should be important and stand out.
+
+.Bad Example
+[source,java]
+/**
+ * @param title The title of the CD
+ * @param author The author of the CD
+ * @param tracks The number of tracks on the CD
+ * @param duractionInMinutes The duration of the CD in minutes
+ */
+public void addCd(String title, String author, int tracks, int durationInMinutes) { ... }
+
+==== Comments That Are Wrong or Misleading
+When you see a comment that is wrong or misleading, don't be afraid to correct it or delete it. Don't leave it hanging around to become even more outdated and wrong. Remember, you have a version control system, so if you need to see that comment later you can.
+
+==== Journal Comments
+Don't create journal entries in your code. Your VCS does that for you. Don't clutter your source code with journal comments. If your see these comments, delete them immediately.
+
+.Bad Example
+[source,java]
+/* Changes (from 11-Oct-2011)
+ * ----------------------------------
+ * 11-Oct-2011 : Changed function sendEmail()
+ * 12-Oct-2011 : Deleted some commented out code
+ * 13-Oct-2011 : Refactored some code to make the function names more obvious
+ */
+
+==== Position Markers and Big Banner Comments
+A big banner comment screams "Ignore me!". The structure of your code should be logical and the position of your variables, methods and constructors should be implicit in your uniformly structured source code.
+
+.Bad Example
+[source,java]
+public class MyClass {
+  // **********************
+  // * Instance Variables *
+  // **********************
+
+  private int myVariables;
+
+  // ***********************
+  // * Default Constructor *
+  // ***********************
+
+  public myClass() {}
+}
+
+==== Closing Brace Comments
+Your IDE is powerful. It will show you where your braces start and end. Additionally, if you have long chains of nested brackets it implies complex if-else logic or many nested loops. Good programming practice is to have a function do one thing and one thing only.
+
+.Bad Example
+[source,java]
+if ((result > 0) && (result < 10)) {
+  for (int i = 0; i < names.length(); i++) {
+    if (name[i].equals("Bob")) {
+      result += 1;
+    } // if
+    else {
+      System.out.println("Not Bob");
+    } // else
+  } // for
+} // if
+
+==== Attributions
+You don't have to sign your name on every line of code you write. If we want to figure out who to blame we can look at the VCS annotation.
+
+.Bad Example
+[source,java]
+/** Written by Billy S. **/
+
+==== Non-local Information
+Comments that talk about code that is far away will rot and rot quickly. If someone modifies that code, there is not way for them to know that comments exists. If you must write a comment, make sure it sits right next to the code it describes.
+
+==== Commented Out Code
+When you see commented out code, delete it immediately. Don't read it, don't try to understand it, just delete it on the spot. Commented out code will rot. If a function is commented out and then you suddenly decide to use it again it may not even compile. Keep in mind, since you have a VCS you don't lose the commented out code forever.
+
+=== When Comments Are Useful
+
+==== Legal Comments
+When you need legal comments, write them at the top of the file. It's the law.
+
+==== Informative Comments
+When the comment explains a complex expression such as a regular expression or a SQL query.
+
+.Good Example
+[source,java]
+private String convertDateFormat(String dateIn) {
+  // format matched kk:mm:ss EEE, MMM dd, yyy
+  Pattern timePattern = Pattern.compile("\\d*:\\d*:\\d* \\w*, \\w*, \\d*, \\d*");
+  Matcher m = timePattern.matcher(dateIn);
+  if (m.matches()) {
+    return new DateFormat(dateIn);
+  }
+  else {
+    return dateIn;
+  }
+}
+
+==== Clarifications and Explanations of Intent
+When you write code that you cannot explain without a comment, you have failed. Own up to your failure and write a comment to explain your code!
+
+==== Warning of Consequences
+If there are side effects of a function that are important to know, it is ok to leave a comment.

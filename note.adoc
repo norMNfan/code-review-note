@@ -90,19 +90,19 @@ Should have shorter name length when longer scope length. Because we want it to 
 
 == Comments
 
-=== Every Comment Is A Failure
-The goal of every programmer should be to write code that expresses it's intent so well that comments are unnecessary. Every comment is a failure to express yourself in your code. Every comment is a failure! If your fail to express yourself in code, admit your failure and write the comment. Do not leave the code unexplained.
+==== Every Comment Is A Failure
+The goal of every programmer should be to write code that expresses it's intent so well that comments are unnecessary. Every comment is a failure to express yourself in your code. Every comment is a failure! If you fail to express yourself in code, admit your failure and write the comment. Do not leave the code unexplained.
 
-=== The Code Is The Only Reliable Document For What The Code Does
+==== The Code Is The Only Reliable Document For What The Code Does
 When there is a bug in the system, reading artistic flow charts and comments will be to no avail. Only by reading the code can the programmer understand what the code actually does.
 
-=== Comments Rot and Lie
+==== Comments Rot and Lie
 Overtime comments degrade into misinformation and lies. Comments rot because they tend to be non-local. When you change a line of code, how do you know that you haven't just invalidated a comment somewhere else in the code? There is no way to know. Comments must rot. They eventually rot and become lies.
 
 === When Comments Should Not Be Used
 
 ==== Redundant Explanations
-Comments must add something new. Don't simply restate the code already expresses.
+Comments must add something new. Don't simply restate what the code already expresses.
 
 .Bad Example
 [source,java]
@@ -136,7 +136,7 @@ Don't create journal entries in your code. Your VCS does that for you. Don't clu
 [source,java]
 ----
 /* Changes (from 11-Oct-2011)
- * ----------------------------------
+ *
  * 11-Oct-2011 : Changed function sendEmail()
  * 12-Oct-2011 : Deleted some commented out code
  * 13-Oct-2011 : Refactored some code to make the function names more obvious

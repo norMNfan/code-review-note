@@ -106,14 +106,17 @@ Comments must add something new. Don't simply restate the code already expresses
 
 .Bad Example
 [source,java]
+----
 // This method sends an email
 void sendEmail() { ... }
+----
 
 ==== Mandated Redundancy (Mandated Stupidity)
 When comments are mandated at the top of classes and functions they create noise. They are often skipped by developers who become trained to ignore them because they are everywhere. Comments should be rare. When they are used they should be important and stand out.
 
 .Bad Example
 [source,java]
+----
 /**
  * @param title The title of the CD
  * @param author The author of the CD
@@ -121,6 +124,7 @@ When comments are mandated at the top of classes and functions they create noise
  * @param duractionInMinutes The duration of the CD in minutes
  */
 public void addCd(String title, String author, int tracks, int durationInMinutes) { ... }
+----
 
 ==== Comments That Are Wrong or Misleading
 When you see a comment that is wrong or misleading, don't be afraid to correct it or delete it. Don't leave it hanging around to become even more outdated and wrong. Remember, you have a version control system, so if you need to see that comment later you can.
@@ -130,18 +134,21 @@ Don't create journal entries in your code. Your VCS does that for you. Don't clu
 
 .Bad Example
 [source,java]
+----
 /* Changes (from 11-Oct-2011)
  * ----------------------------------
  * 11-Oct-2011 : Changed function sendEmail()
  * 12-Oct-2011 : Deleted some commented out code
  * 13-Oct-2011 : Refactored some code to make the function names more obvious
  */
+ ----
 
 ==== Position Markers and Big Banner Comments
 A big banner comment screams "Ignore me!". The structure of your code should be logical and the position of your variables, methods and constructors should be implicit in your uniformly structured source code.
 
 .Bad Example
 [source,java]
+----
 public class MyClass {
   // **********************
   // * Instance Variables *
@@ -155,12 +162,14 @@ public class MyClass {
 
   public myClass() {}
 }
+----
 
 ==== Closing Brace Comments
 Your IDE is powerful. It will show you where your braces start and end. Additionally, if you have long chains of nested brackets it implies complex if-else logic or many nested loops. Good programming practice is to have a function do one thing and one thing only.
 
 .Bad Example
 [source,java]
+----
 if ((result > 0) && (result < 10)) {
   for (int i = 0; i < names.length(); i++) {
     if (name[i].equals("Bob")) {
@@ -171,13 +180,16 @@ if ((result > 0) && (result < 10)) {
     } // else
   } // for
 } // if
+----
 
 ==== Attributions
 You don't have to sign your name on every line of code you write. If we want to figure out who to blame we can look at the VCS annotation.
 
 .Bad Example
 [source,java]
+----
 /** Written by Billy S. **/
+----
 
 ==== Non-local Information
 Comments that talk about code that is far away will rot and rot quickly. If someone modifies that code, there is not way for them to know that comments exists. If you must write a comment, make sure it sits right next to the code it describes.
@@ -195,6 +207,7 @@ When the comment explains a complex expression such as a regular expression or a
 
 .Good Example
 [source,java]
+----
 private String convertDateFormat(String dateIn) {
   // format matched kk:mm:ss EEE, MMM dd, yyy
   Pattern timePattern = Pattern.compile("\\d*:\\d*:\\d* \\w*, \\w*, \\d*, \\d*");
@@ -206,6 +219,7 @@ private String convertDateFormat(String dateIn) {
     return dateIn;
   }
 }
+----
 
 ==== Clarifications and Explanations of Intent
 When you write code that you cannot explain without a comment, you have failed. Own up to your failure and write a comment to explain your code!
